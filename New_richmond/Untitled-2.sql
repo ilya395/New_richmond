@@ -72,7 +72,7 @@ dj_plans.area AS "Значение(-я) аттрибута(-ов) 7",
 '1' AS "Глобальный атрибут 7",
 -- балконы
 'balkon' AS "Имя атрибута 5",
-dj_plans.balcons AS "Значение(-я) аттрибута(-ов) 5",
+SUBSTRING(CAST(dj_plans.balcons AS text), 2, LENGTH(CAST(dj_plans.balcons AS text)) - 2) AS "Значение(-я) аттрибута(-ов) 5",
 '1' AS "Видимость атрибута 5",
 '1' AS "Глобальный атрибут 5",
 -- жилая площадь
