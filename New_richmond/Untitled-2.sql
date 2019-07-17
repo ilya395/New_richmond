@@ -7,10 +7,6 @@
 -- JOIN dj_floors ON dj_floors.id = dj_flats.floor_id
 -- WHERE dj_flats.project_id = 44;
 
--- SELECT 
--- *
--- FROM dj_flats;
-
 SELECT 
 -- id кв в системе
 dj_flats.id AS "ID",
