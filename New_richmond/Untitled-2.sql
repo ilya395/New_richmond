@@ -15,7 +15,7 @@ dj_flats.id AS "ID",
 --
 dj_flats.number AS "Артикул",
 -- название кв
-CONCAT('Квартира №', dj_flats.number, ', БС', dj_sections.number, ', этаж', dj_floors.number, ', планировка ', dj_plans.name) AS "Имя",
+CONCAT('Помещение №', dj_flats.number, ', БС', dj_sections.number, ', этаж', dj_floors.number, ', планировка ', dj_plans.name) AS "Имя",
 -- цена кв
 dj_flats.price AS "Базовая цена",
 -- номер этажа
@@ -128,4 +128,4 @@ JOIN dj_floors ON dj_floors.id = dj_flats.floor_id
 JOIN dj_plans ON dj_plans.id = dj_flats.plan_id
 JOIN dj_sections ON dj_sections.id = dj_flats.section_id
 JOIN dj_buildings ON dj_buildings.id = dj_flats.building_id
-WHERE dj_flats.project_id = 44;
+WHERE dj_flats.project_id = 44 AND dj_plans.typex = 'commerce';
