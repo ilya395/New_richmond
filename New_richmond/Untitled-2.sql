@@ -14,7 +14,7 @@ dj_flats.id AS "ID",
 'simple' AS "Тип",
 --
 dj_flats.number AS "Артикул",
--- номер кв
+-- название кв
 CONCAT('Квартира №', dj_flats.number, ', БС', dj_sections.number, ', этаж', dj_floors.number, ', планировка ', dj_plans.name) AS "Имя",
 -- цена кв
 dj_flats.price AS "Базовая цена",
@@ -64,7 +64,7 @@ CASE WHEN dj_plans.rooms_count = 1 THEN 'Однокомнатные'
 	 ELSE 'Четырёхкомнатные'
 END AS "Категории",
 -- количество комнат
-dj_plans.rooms_count,
+-- dj_plans.rooms_count,
 -- площадь
 'area' AS "Имя атрибута 7",
 dj_plans.area AS "Значение(-я) аттрибута(-ов) 7",
@@ -97,9 +97,15 @@ dj_sections.number AS "Значение(-я) аттрибута(-ов) 2",
 dj_buildings.number AS "Значение(-я) аттрибута(-ов) 1",
 '1' AS "Видимость атрибута 1",
 '1' AS "Глобальный атрибут 1",
--- -- планировка этажа
+-- планировка этажа
 -- dj_flats.floor_img,
--- --
+--
+CASE WHEN dj_floors.number BETWEEN 1 AND 2 THEN 'http://richmond.store:8888/wp-content/uploads/all_images/planirovka_1c.jpg'
+	 WHEN dj_floors.number BETWEEN 3 AND 4 THEN 'http://richmond.store:8888/wp-content/uploads/all_images/planirovka_2c.jpg'
+	 WHEN dj_floors.number BETWEEN 5 AND 6 THEN 'http://richmond.store:8888/wp-content/uploads/all_images/planirovka_3c.jpg'
+	 ELSE 'http://richmond.store:8888/wp-content/uploads/all_images/planirovka_4c.jpg'
+END AS "Изображения",
+--
 -- dj_flats.balcony,
 -- dj_flats.bathroom,
 --
